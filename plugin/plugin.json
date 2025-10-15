@@ -1,0 +1,11 @@
+{
+  "publicComponents": {
+    "getUserInfo": "components/getUserInfo/getUserInfo",
+    "swiperItemAd": "components/swiperItemAd/swiperItemAd"
+  },
+  "pages": {
+    "lightbox-control": "pages/lightbox-control/index/index",
+    "lightbox-control-detail": "pages/lightbox-control/detail/detail"
+  },
+  "main": "index.js"
+}

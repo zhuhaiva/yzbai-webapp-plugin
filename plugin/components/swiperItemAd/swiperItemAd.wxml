@@ -1,0 +1,12 @@
+<view class="swiper-box">
+  <swiper bindchange="changeSwiper" indicator-dots="true" indicator-active-color="#3bcfdc" autoplay="true" interval="5000" duration="1000">
+    <swiper-item>
+      <ad-custom unit-id="adunit-31d67590e35f3f1f"  style="height:320rpx;border-radius: 16rpx;"></ad-custom>
+    </swiper-item>
+    <block wx:for="{{productList}}">
+      <swiper-item>
+        <image src="{{item.image}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

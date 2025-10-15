@@ -1,0 +1,8 @@
+miniprogram
+miniprogram_npm
+node_modules
+miniapp
+
+package-lock.json
+project.packages.lock.json
+project.private.config.json

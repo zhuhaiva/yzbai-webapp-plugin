@@ -1,0 +1,4 @@
+<!--plugin/components/hello-component.wxml-->
+<functional-page-navigator name="loginAndGetUserInfo" args="{{ args }}" version="release" bind:success="loginSuccess" bind:fail="loginFail">
+  <slot></slot>
+</functional-page-navigator>

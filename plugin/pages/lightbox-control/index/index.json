@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "智能控制",
+  "navigationBarBackgroundColor": "#d7e4f4",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#d7e4f4",
+  "enablePullDownRefresh":true,
+  "usingComponents": {}
+}

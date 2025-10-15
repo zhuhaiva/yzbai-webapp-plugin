@@ -1,0 +1,85 @@
+var returnCustromModeText = function (val) {
+  return val.map(function (item) {
+    if (item.status === 1) {
+      return item.name
+    }
+    return ""
+  })
+}
+
+var returnSpeedText = function (val) {
+  var speedArr = {
+    "138": "低速",
+    "139": "中速",
+    "140": "高速",
+    "141": "自动"
+  };
+  return speedArr[val.toString()] || "自动";
+}
+
+var returnAirSpeedImg = function (val) {
+  var url = "https://littleapp.dzbsaas.cn/footmassage/static/assets/images/yzbai/"
+  var modeArr = {
+    "138": "slow.svg",
+    "139": "middle.svg",
+    "140": "high.svg",
+    "141": "airAuto.svg"
+  }
+  return url + modeArr[val.toString()];
+}
+
+var returnAirModeImg = function (val) {
+  var modeArr = {
+    "106": "http://www.dzbsaas.cn/footmassage/static/assets/images/lightbox/air_cmd/cold.png",
+    "107": "http://www.dzbsaas.cn/footmassage/static/assets/images/lightbox/air_cmd/hot.png",
+    "108": "http://www.dzbsaas.cn/footmassage/static/assets/images/lightbox/air_cmd/blow.png"
+  };
+  return modeArr[val.toString()] || "";
+}
+
+var modeFormat = function (val) {
+  var typeEnum = {
+    "106": "制冷",
+    "107": "制热",
+    "108": "送风"
+  };
+  return typeEnum[val.toString()] || "未知";
+}
+
+var lcmodeFormat = function (val) {
+  var typeEnum = {
+    "0": "未设置",
+    "128": "明亮",
+    "129": "柔和",
+    "130": "浪漫",
+    "131": "商务",
+    "132": "抒情",
+    "133": "打扫"
+  };
+  return typeEnum[val.toString()] || "未知";
+}
+
+// var isOpend = function (air, lightboxCustromMode) {
+//   if (air) {
+//     if (air.switch === 154) {
+//       return true
+//     }
+//     if (air.exhaust === 80) {
+//       return true
+//     }
+//     if (lightboxCustromMode.some(item => item.status === 1)) {
+//       return true
+//     }
+//   }
+//   return false
+// }
+
+module.exports = {
+  // isOpend: isOpend,
+  lcmodeFormat: lcmodeFormat,
+  modeFormat: modeFormat,
+  returnAirModeImg: returnAirModeImg,
+  returnSpeedText: returnSpeedText,
+  returnAirSpeedImg: returnAirSpeedImg,
+  returnCustromModeText: returnCustromModeText
+}

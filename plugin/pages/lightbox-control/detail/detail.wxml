@@ -1,0 +1,170 @@
+<!--plugin/pages/lightbox-control/detail/detail.wxml-->
+<wxs src="../tools.wxs" module="tools" />
+<view class="lightbox" wx:if="{{form}}">
+  <view class="row" wx:if="{{!synchronized}}">
+    <view class="cols span24">
+      <view class="grid-item allowOperat" bind:tap="getRoomLightbox(true)">
+        <view class="lightbox-flex-start">
+          <view>
+            <view>
+              <image class="warning-icon" src="{{image.warning}}" />
+            </view>
+          </view>
+          <view>
+            <view class="grid-btn-name">未同步房间灯光状态</view>
+            <view class="grid-btn-subname">请重新尝试同步或查看房间设备是否正常</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="lightbox-title">全屋控制</view>
+  <view class="row">
+    <view class="cols span12" wx:if="{{loading}}">
+      <view class="grid-item allowOperat">
+        <view class="lightbox-flex-start">
+          <view>
+            <view style="margin-right:16px;background-color: #ECF5FF;color: rgb(64, 158, 255);" class="grid-btn">
+              <image class="switch-icon animation-6" src="{{image.refresh}}" />
+            </view>
+          </view>
+          <view>
+            <view class="grid-btn-name" style="color: rgb(64, 158, 255);">同步中</view>
+            <view class="grid-btn-subname">请等待</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cols span12" wx:else>
+      <view class="grid-item allowOperat" bind:tap="getRoomLightbox">
+        <view class="lightbox-flex-between">
+          <view>
+            <view class="grid-btn-name">同步灯控</view>
+            <view class="grid-btn-subname">保持网络畅通</view>
+          </view>
+          <view>
+            <view class="grid-btn">
+              <image class="switch-icon" src="{{image.refresh}}" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cols span12">
+      <view class="grid-item allowOperat" bind:tap="changeAirAllSwitch">
+        <view class="lightbox-flex-between">
+          <view>
+            <view class="grid-btn-name">一键开关</view>
+            <view class="grid-btn-subname">全屋家居开/关</view>
+          </view>
+          <view>
+            <view class="grid-btn {{ tools.isOpend()?'active':''}}">
+              <image class="switch-icon" src="{{image.poweroff}}" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="lightbox-flex-between">
+    <view class="lightbox-title">空调控制</view>
+    <view style="margin-bottom: 20rpx;color: rgb(81 81 81);font-weight: normal;font-size: 26rpx;">
+      <view wx:if="{{form.air.currtemp}}">
+        室内温度 {{ form.air.currtemp }}℃
+      </view>
+      <view wx:else>
+        未获取到室内温度
+      </view>
+    </view>
+  </view>
+  <view class="row gutter10">
+    <view class="cols span24">
+      <view class="grid-item">
+        <view class="lightbox-flex-between">
+          <view class="grid-btn" bind:tap="changeAirTemp" data-type="rem">
+            <image class="switch-icon" src="{{image.minus}}" />
+          </view>
+          <view class="temperature">
+            <view class="temperature-num">{{ form.air.temp }}</view>
+            <view class="temperature-unit">℃</view>
+          </view>
+          <view class="grid-btn" bind:tap="changeAirTemp" data-type="add">
+            <image class="switch-icon" src="{{image.plus}}" />
+          </view>
+        </view>
+        <t-slider bind:change="changeAirTempSlider" style="margin-top: 16px;" value="{{form.air.temp}}" theme="capsule" min="16" max="30" />
+      </view>
+    </view>
+  </view>
+  <view class="row gutter10">
+    <view class="cols span12">
+      <view class="grid-item allowOperat" bind:tap="changeAirSwitch">
+        <view class="lightbox-flex-between">
+          <view>
+            <view class="grid-btn-name">空调开关</view>
+            <view class="grid-btn-subname">{{ form.air.switch === 154 ? '开' : '关' }}</view>
+          </view>
+          <view class="grid-btn {{ form.air.switch === 154?'active':''}}">
+            <image class="switch-icon" src="{{image.poweroff}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cols span12">
+      <view class="grid-item allowOperat" bind:tap="changeAirMode">
+        <view class="lightbox-flex-between">
+          <view>
+            <view class="grid-btn-name">模式</view>
+            <view class="grid-btn-subname">{{ tools.modeFormat(form.air.mode) }}</view>
+          </view>
+          <view>
+            <image src="{{tools.returnAirModeImg(form.air.mode)}}" class="grid-btn-img {{form.air.mode === 108?'imgFilter':'' }}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cols span12">
+      <view class="grid-item allowOperat" bind:tap="changeAirSpeed">
+        <view class="lightbox-flex-between">
+          <view>
+            <view class="grid-btn-name">风速</view>
+            <view class="grid-btn-subname">{{ tools.returnSpeedText(form.air.speed) }}</view>
+          </view>
+          <view>
+            <image src="{{tools.returnAirSpeedImg(form.air.speed)}}" class="grid-btn-img {{ form.air.speed === 141?'imgFilter':''  }}" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <block wx:if="{{form.light.sm === 0 || form.light.sm === 2}}">
+    <view class="lightbox-title">自定义模式</view>
+    <view class="row gutter10">
+      <view class="cols span12" wx:for="{{lightboxCustromMode}}">
+        <view class="grid-item" bind:tap="changeLightCustromMode" data-item="{{item}}" wx:if="{{item.name !== '未定义'}}">
+          <view class="lightbox-flex-between">
+            <view>
+              <view class="grid-btn-name">{{ item.name }}</view>
+              <view class="grid-btn-subname">{{ item.status === 1 ? '打开' : '关闭' }}</view>
+            </view>
+            <view>
+              <view class="grid-btn {{ item.status === 1?'active':''  }}">
+                <image class="switch-icon" src="{{image.poweroff}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view class="row">
+    <view class="cols span24">
+      <view class="grid-item">
+        <ad-custom unit-id="adunit-23efcbd98b88e357" bindload="adLoad" binderror="adError" bindclose="adClose"></ad-custom>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,57 @@
+<!--plugin/pages/lightbox-control/index/index.wxml-->
+<wxs src="../tools.wxs" module="tools" />
+<view class="lc_list">
+  <block wx:for="{{room_list}}">
+    <view class="lc_item" :key="index" bind:tap="lcControl" data-item="{{item}}" wx:if="{{item.lc}}">
+      <view class="lc_item_top">
+        <view class="lc_item_top_left">
+          <view class="lc_item_top_left_title">
+            <text>{{ item.name }}</text>
+          </view>
+          <view class="lc_item_top_left_content">
+            <view class="lc_item_top_left_content_item">
+              <md-tag size="small" shape="circle" type="fill" fill-color="#ededee" font-color="#999999">{{
+                      item.area
+                      || "未分配区域" }}</md-tag>
+            </view>
+          </view>
+        </view>
+        <view class="lc_item_right">
+          <image src="{{tools.returnAirModeImg(item.lc.air[1])}}" class="{{item.lc.air[1] === 108 ? 'imgFilter':'' }}" />
+        </view>
+      </view>
+      <view class="lc_item_top_left_content_item">
+        <view style="display: flex;">
+          <view class="lc_item_top_left_content_item_span">
+            <text class="type air_cold">空调 </text>
+            <text class="{{item.lc.air[0] === 154 ? 'colorOpen': 'colorClose'}}">{{ item.lc.air[0] === 154 ? '开' : '关' }}</text>
+          </view>
+          <view class="lc_item_top_left_content_item_span">
+            <text class="type air_cold">{{tools.modeFormat(item.lc.air[1]) }} </text>
+            <text style="color: #f38e1d;">{{ item.lc.air[4] }}℃</text>
+          </view>
+          <view class="lc_item_top_left_content_item_span">
+            <text class="typeair_cold">风速 </text>
+            <text style="color: #f38e1d;">{{ tools.returnSpeedText(item.lc.air[2]) }}</text>
+          </view>
+        </view>
+        <view>
+          <view class="grid-btn-group">
+            <view wx:for="{{item.lightboxCustromMode}}">
+              <view class="grid-btn {{ item.status === 1?'active':''}}">
+                <image src="https://www.dzbsaas.cn/footmassage/static/assets/svg/lamp/{{item.img}}" wx:if="{{item.img}}" />
+                <text v-else aria-hidden="true" class="fa fa-power-off"></text>
+              </view>
+              <view class="grid-btn-text">{{ item.name }}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:if="{{empty}}" class="empty">
+    <image src="https://littleapp.dzbsaas.cn/footmassage/static/assets/images/yzbai/empty.svg"></image>
+    <view>当前门店未启用智能控制</view>
+  </view>
+</view>
