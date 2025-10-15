@@ -1,9 +1,43 @@
 <view class="pagebox">
-  <swiperItemAd></swiperItemAd>
-  <getUserInfo bindonSuccess="getInfo">
-    <button>快捷授权登录</button>
-  </getUserInfo>
+  <view class="box">
+    <view class="title">授权登录</view>
+    <view>
+      <getUserInfo bindonSuccess="getInfo">
+        <button>快捷授权登录</button>
+      </getUserInfo>
+    </view>
+  </view>
 
-  <button bind:tap="getPage" style="margin-top: 20px;">智能灯控</button>
+  <view class="box">
+    <view class="title">智能灯控</view>
+    <view>
+      <button bind:tap="getPage" data-type="1000">房间列表页</button>
+      <button bind:tap="getPage" data-type="1001" style="margin-left: 20rpx;">控制页(205房间)</button>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="title">通用广告</view>
+    <view>
+      <button bind:tap="openIntersTitialAd">插屏广告</button>
+      <button bind:tap="openRewardedVideoAd" style="margin-left: 20rpx;">激励广告</button>
+    </view>
+    <interstitialAd show="{{interstitialAdShow}}"></interstitialAd>
+    <rewardedVideoAd show="{{rewardedVideoAdShow}}" bind:close="rewardedVideoClose"></rewardedVideoAd>
+  </view>
+
+  <view class="box">
+    <view class="title">轮播广告页</view>
+    <view>
+      <swiperItemAd></swiperItemAd>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="title">20:7横幅卡片广告</view>
+    <view>
+      <orderScanCodeAd></orderScanCodeAd>
+    </view>
+  </view>
 
 </view>

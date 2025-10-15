@@ -1,6 +1,12 @@
 {
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "云钟宝AI插件示例",
   "usingComponents": {
     "getUserInfo": "plugin://yzb-fast-login-plugin/getUserInfo",
-    "swiperItemAd": "plugin://yzb-fast-login-plugin/swiperItemAd"
+    "swiperItemAd": "plugin://yzb-fast-login-plugin/swiperItemAd",
+    "orderScanCodeAd": "plugin://yzb-fast-login-plugin/orderScanCodeAd",
+    "interstitialAd": "plugin://yzb-fast-login-plugin/interstitialAd",
+    "rewardedVideoAd": "plugin://yzb-fast-login-plugin/rewardedVideoAd"
   }
 }

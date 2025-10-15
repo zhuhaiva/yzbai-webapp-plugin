@@ -1,7 +1,10 @@
 {
   "publicComponents": {
     "getUserInfo": "components/getUserInfo/getUserInfo",
-    "swiperItemAd": "components/swiperItemAd/swiperItemAd"
+    "swiperItemAd": "components/swiperItemAd/swiperItemAd",
+    "orderScanCodeAd":"components/orderScanCodeAd/orderScanCodeAd",
+    "interstitialAd":"components/interstitialAd/interstitialAd",
+    "rewardedVideoAd":"components/rewardedVideoAd/rewardedVideoAd"
   },
   "pages": {
     "lightbox-control": "pages/lightbox-control/index/index",
