@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "getUserInfo": "plugin://yzb-fast-login-plugin/getUserInfo",
+    "swiperItemAd": "plugin://yzb-fast-login-plugin/swiperItemAd"
+  }
+}

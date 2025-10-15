@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "functionalPages": {
+    "independent": true
+  },
+  "plugins": {
+    "yzb-fast-login-plugin": {
+      "version": "dev",
+      "provider": "wxc4acd4715423d65c"
+    }
+  }
+}

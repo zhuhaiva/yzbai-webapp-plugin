@@ -1,0 +1,9 @@
+<view class="pagebox">
+  <swiperItemAd></swiperItemAd>
+  <getUserInfo bindonSuccess="getInfo">
+    <button>快捷授权登录</button>
+  </getUserInfo>
+
+  <button bind:tap="getPage" style="margin-top: 20px;">智能灯控</button>
+
+</view>
