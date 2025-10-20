@@ -1,0 +1,2 @@
+<!--plugin/components/adTemplate/adTemplate.wxml-->
+<ad-custom unit-id="{{unitId}}" bindload="adLoad" binderror="adError" bindclose="adClose"></ad-custom>

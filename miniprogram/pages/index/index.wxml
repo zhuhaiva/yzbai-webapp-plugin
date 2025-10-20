@@ -39,5 +39,16 @@
       <orderScanCodeAd></orderScanCodeAd>
     </view>
   </view>
-
+  <view class="box">
+    <view class="title">横幅单图广告</view>
+    <view>
+      <adTemplate unit-id="adunit-826fe5f6857cd081"></adTemplate>
+    </view>
+  </view>
+  <view class="box">
+    <view class="title">横幅左右图文带转化按钮</view>
+    <view>
+      <adTemplate unit-id="adunit-e307070507d0198b"></adTemplate>
+    </view>
+  </view>
 </view>

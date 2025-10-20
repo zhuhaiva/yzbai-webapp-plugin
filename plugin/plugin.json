@@ -4,7 +4,8 @@
     "swiperItemAd": "components/swiperItemAd/swiperItemAd",
     "orderScanCodeAd":"components/orderScanCodeAd/orderScanCodeAd",
     "interstitialAd":"components/interstitialAd/interstitialAd",
-    "rewardedVideoAd":"components/rewardedVideoAd/rewardedVideoAd"
+    "rewardedVideoAd":"components/rewardedVideoAd/rewardedVideoAd",
+    "adTemplate":"components/adTemplate/adTemplate"
   },
   "pages": {
     "lightbox-control": "pages/lightbox-control/index/index",

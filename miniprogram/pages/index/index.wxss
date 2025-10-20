@@ -1,6 +1,7 @@
 page {
   padding: 16rpx;
   box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .title {
   box-sizing: border-box;
@@ -19,7 +20,7 @@ page {
   height: 30rpx;
   width: 8rpx;
   margin-right: 20rpx;
-  background-color: #3F9CFF;
+  background-color: #3f9cff;
   border-radius: 8rpx;
 }
 
